@@ -1,3 +1,6 @@
+using Microsoft.Data.SqlClient;
+using SistemaAtendimento.Database;
+
 namespace SistemaAtendimento
 {
     public partial class FrmTelaPrincipal : Form
@@ -7,9 +10,20 @@ namespace SistemaAtendimento
             InitializeComponent();
         }
 
-        private void FrmTelaPrincipal_Load(object sender, EventArgs e)
+        private void btnConexao_Click_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                using (SqlConnection conexao = ConexaoDB.GetConexao())
+                {
+                    conexao.Open();
+                    MessageBox.Show("Conexão Realizada com Sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar:" + ex.Message);
+            }
         }
     }
 }
