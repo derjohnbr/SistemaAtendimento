@@ -457,7 +457,7 @@
             // lblPesquisar
             // 
             lblPesquisar.AutoSize = true;
-            lblPesquisar.Location = new Point(448, 342);
+            lblPesquisar.Location = new Point(468, 342);
             lblPesquisar.Name = "lblPesquisar";
             lblPesquisar.Size = new Size(57, 15);
             lblPesquisar.TabIndex = 6;
@@ -465,14 +465,14 @@
             // 
             // txtPesquisar
             // 
-            txtPesquisar.Location = new Point(448, 360);
+            txtPesquisar.Location = new Point(468, 360);
             txtPesquisar.Name = "txtPesquisar";
             txtPesquisar.Size = new Size(231, 23);
             txtPesquisar.TabIndex = 20;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(685, 360);
+            btnPesquisar.Location = new Point(705, 360);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(75, 23);
             btnPesquisar.TabIndex = 21;
@@ -484,7 +484,7 @@
             grbListaClientes.Controls.Add(dgvClientes);
             grbListaClientes.Location = new Point(13, 411);
             grbListaClientes.Name = "grbListaClientes";
-            grbListaClientes.Size = new Size(747, 232);
+            grbListaClientes.Size = new Size(767, 232);
             grbListaClientes.TabIndex = 9;
             grbListaClientes.TabStop = false;
             grbListaClientes.Text = "Lista Clientes";
@@ -494,7 +494,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(6, 22);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(735, 204);
+            dgvClientes.Size = new Size(755, 204);
             dgvClientes.TabIndex = 0;
             // 
             // FrmCadastroClientes
