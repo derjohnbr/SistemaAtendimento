@@ -25,5 +25,16 @@ namespace SistemaAtendimento
                 MessageBox.Show("Erro ao conectar:" + ex.Message);
             }
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroClientes frmCadastroClientes = new FrmCadastroClientes();
+            frmCadastroClientes.ShowDialog();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
