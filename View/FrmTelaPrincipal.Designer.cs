@@ -71,18 +71,21 @@
             usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
             usuáriosToolStripMenuItem.Size = new Size(184, 22);
             usuáriosToolStripMenuItem.Text = "Usuários";
+            usuáriosToolStripMenuItem.Click += usuáriosToolStripMenuItem_Click;
             // 
             // etapasToolStripMenuItem
             // 
             etapasToolStripMenuItem.Name = "etapasToolStripMenuItem";
             etapasToolStripMenuItem.Size = new Size(184, 22);
             etapasToolStripMenuItem.Text = "Etapas";
+            etapasToolStripMenuItem.Click += etapasToolStripMenuItem_Click;
             // 
             // statusAtendimentosToolStripMenuItem
             // 
             statusAtendimentosToolStripMenuItem.Name = "statusAtendimentosToolStripMenuItem";
             statusAtendimentosToolStripMenuItem.Size = new Size(184, 22);
             statusAtendimentosToolStripMenuItem.Text = "Status Atendimentos";
+            statusAtendimentosToolStripMenuItem.Click += statusAtendimentosToolStripMenuItem_Click;
             // 
             // atendimentosToolStripMenuItem
             // 
@@ -113,7 +116,7 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(93, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 

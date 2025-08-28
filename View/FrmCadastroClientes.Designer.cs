@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroClientes));
             grbDadosCliente = new GroupBox();
             lblEstado = new Label();
             cbxEstado = new ComboBox();
@@ -73,6 +75,7 @@
             btnPesquisar = new Button();
             grbListaClientes = new GroupBox();
             dgvClientes = new DataGridView();
+            imlIcones = new ImageList(components);
             grbDadosCliente.SuspendLayout();
             pnlSituacao.SuspendLayout();
             pnlTipoPessoa.SuspendLayout();
@@ -141,7 +144,7 @@
             // 
             pnlSituacao.Controls.Add(rdbInativo);
             pnlSituacao.Controls.Add(rdbAtivo);
-            pnlSituacao.Location = new Point(214, 266);
+            pnlSituacao.Location = new Point(617, 266);
             pnlSituacao.Name = "pnlSituacao";
             pnlSituacao.Size = new Size(130, 36);
             pnlSituacao.TabIndex = 14;
@@ -178,7 +181,7 @@
             // lblSituacao
             // 
             lblSituacao.AutoSize = true;
-            lblSituacao.Location = new Point(217, 254);
+            lblSituacao.Location = new Point(620, 254);
             lblSituacao.Name = "lblSituacao";
             lblSituacao.Size = new Size(52, 15);
             lblSituacao.TabIndex = 12;
@@ -411,53 +414,73 @@
             // 
             // btnNovo
             // 
-            btnNovo.Location = new Point(12, 360);
+            btnNovo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNovo.ImageIndex = 3;
+            btnNovo.ImageList = imlIcones;
+            btnNovo.Location = new Point(12, 354);
             btnNovo.Name = "btnNovo";
-            btnNovo.Size = new Size(75, 23);
+            btnNovo.Size = new Size(75, 29);
             btnNovo.TabIndex = 15;
             btnNovo.Text = "Novo";
+            btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(93, 360);
+            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditar.ImageIndex = 1;
+            btnEditar.ImageList = imlIcones;
+            btnEditar.Location = new Point(93, 354);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(75, 23);
+            btnEditar.Size = new Size(75, 29);
             btnEditar.TabIndex = 16;
             btnEditar.Text = "Editar";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(174, 360);
+            btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalvar.ImageIndex = 5;
+            btnSalvar.ImageList = imlIcones;
+            btnSalvar.Location = new Point(174, 354);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(75, 23);
+            btnSalvar.Size = new Size(75, 29);
             btnSalvar.TabIndex = 17;
             btnSalvar.Text = "Salvar";
+            btnSalvar.TextAlign = ContentAlignment.MiddleRight;
             btnSalvar.UseVisualStyleBackColor = true;
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(255, 360);
+            btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExcluir.ImageIndex = 2;
+            btnExcluir.ImageList = imlIcones;
+            btnExcluir.Location = new Point(255, 354);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(75, 23);
+            btnExcluir.Size = new Size(75, 29);
             btnExcluir.TabIndex = 18;
             btnExcluir.Text = "Excluir";
+            btnExcluir.TextAlign = ContentAlignment.MiddleRight;
             btnExcluir.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(336, 360);
+            btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancelar.ImageIndex = 0;
+            btnCancelar.ImageList = imlIcones;
+            btnCancelar.Location = new Point(336, 354);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(86, 29);
             btnCancelar.TabIndex = 19;
             btnCancelar.Text = "Cancelar";
+            btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // lblPesquisar
             // 
             lblPesquisar.AutoSize = true;
-            lblPesquisar.Location = new Point(468, 342);
+            lblPesquisar.Location = new Point(494, 342);
             lblPesquisar.Name = "lblPesquisar";
             lblPesquisar.Size = new Size(57, 15);
             lblPesquisar.TabIndex = 6;
@@ -465,26 +488,27 @@
             // 
             // txtPesquisar
             // 
-            txtPesquisar.Location = new Point(468, 360);
+            txtPesquisar.Location = new Point(494, 360);
             txtPesquisar.Name = "txtPesquisar";
             txtPesquisar.Size = new Size(231, 23);
             txtPesquisar.TabIndex = 20;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(705, 360);
+            btnPesquisar.ImageIndex = 4;
+            btnPesquisar.ImageList = imlIcones;
+            btnPesquisar.Location = new Point(732, 360);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.Size = new Size(48, 23);
             btnPesquisar.TabIndex = 21;
-            btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // grbListaClientes
             // 
             grbListaClientes.Controls.Add(dgvClientes);
-            grbListaClientes.Location = new Point(13, 411);
+            grbListaClientes.Location = new Point(13, 400);
             grbListaClientes.Name = "grbListaClientes";
-            grbListaClientes.Size = new Size(767, 232);
+            grbListaClientes.Size = new Size(767, 243);
             grbListaClientes.TabIndex = 9;
             grbListaClientes.TabStop = false;
             grbListaClientes.Text = "Lista Clientes";
@@ -494,8 +518,20 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(6, 22);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(755, 204);
+            dgvClientes.Size = new Size(755, 215);
             dgvClientes.TabIndex = 0;
+            // 
+            // imlIcones
+            // 
+            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
+            imlIcones.TransparentColor = Color.Transparent;
+            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
+            imlIcones.Images.SetKeyName(1, "icone-editar.png");
+            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
+            imlIcones.Images.SetKeyName(3, "icone-novo.png");
+            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
+            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
             // 
             // FrmCadastroClientes
             // 
@@ -574,5 +610,6 @@
         private Button btnPesquisar;
         private GroupBox grbListaClientes;
         private DataGridView dgvClientes;
+        private ImageList imlIcones;
     }
 }
