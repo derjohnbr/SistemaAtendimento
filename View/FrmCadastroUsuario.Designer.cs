@@ -196,6 +196,7 @@
             // cbxPerfil
             // 
             cbxPerfil.FormattingEnabled = true;
+            cbxPerfil.Items.AddRange(new object[] { "Usuário", "Administrador" });
             cbxPerfil.Location = new Point(289, 93);
             cbxPerfil.Name = "cbxPerfil";
             cbxPerfil.Size = new Size(218, 23);
