@@ -33,6 +33,7 @@
             grbListaSituacoesAtendimento = new GroupBox();
             dgvSituacoesAtendimento = new DataGridView();
             btnPesquisar = new Button();
+            imlIcones = new ImageList(components);
             txtPesquisar = new TextBox();
             lblPesquisar = new Label();
             btnCancelar = new Button();
@@ -51,7 +52,6 @@
             lblNome = new Label();
             lblCodigo = new Label();
             txtCodigo = new TextBox();
-            imlIcones = new ImageList(components);
             grbListaSituacoesAtendimento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSituacoesAtendimento).BeginInit();
             grbDadosSituacaoAtendimento.SuspendLayout();
@@ -85,6 +85,18 @@
             btnPesquisar.Size = new Size(48, 23);
             btnPesquisar.TabIndex = 51;
             btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // imlIcones
+            // 
+            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
+            imlIcones.TransparentColor = Color.Transparent;
+            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
+            imlIcones.Images.SetKeyName(1, "icone-editar.png");
+            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
+            imlIcones.Images.SetKeyName(3, "icone-novo.png");
+            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
+            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
             // 
             // txtPesquisar
             // 
@@ -272,18 +284,6 @@
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 0;
             // 
-            // imlIcones
-            // 
-            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
-            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
-            imlIcones.TransparentColor = Color.Transparent;
-            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
-            imlIcones.Images.SetKeyName(1, "icone-editar.png");
-            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
-            imlIcones.Images.SetKeyName(3, "icone-novo.png");
-            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
-            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
-            // 
             // FrmCadastroSituacaoAtendimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -301,6 +301,7 @@
             Controls.Add(grbDadosSituacaoAtendimento);
             Name = "FrmCadastroSituacaoAtendimento";
             Text = "FrmCadastroSituacaoAtendimento";
+            Load += FrmCadastroSituacaoAtendimento_Load;
             grbListaSituacoesAtendimento.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSituacoesAtendimento).EndInit();
             grbDadosSituacaoAtendimento.ResumeLayout(false);

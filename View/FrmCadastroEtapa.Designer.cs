@@ -301,6 +301,7 @@
             Controls.Add(grbDadosEtapa);
             Name = "FrmCadastroEtapa";
             Text = "Cadastro de Etapas";
+            Load += FrmCadastroEtapa_Load;
             grbListaEtapas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvEtapas).EndInit();
             grbDadosEtapa.ResumeLayout(false);
