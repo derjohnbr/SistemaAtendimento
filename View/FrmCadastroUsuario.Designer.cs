@@ -44,12 +44,14 @@
             grbDadosUsuario = new GroupBox();
             cbxPerfil = new ComboBox();
             lblPerfil = new Label();
-            txtSenha = new TextBox();
-            lblSenha = new Label();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
             txtNome = new TextBox();
             lblNome = new Label();
             lblCodigo = new Label();
             txtCodigo = new TextBox();
+            txtSenha = new TextBox();
+            lblSenha = new Label();
             grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             grbDadosUsuario.SuspendLayout();
@@ -178,10 +180,12 @@
             // 
             // grbDadosUsuario
             // 
-            grbDadosUsuario.Controls.Add(cbxPerfil);
-            grbDadosUsuario.Controls.Add(lblPerfil);
             grbDadosUsuario.Controls.Add(txtSenha);
             grbDadosUsuario.Controls.Add(lblSenha);
+            grbDadosUsuario.Controls.Add(cbxPerfil);
+            grbDadosUsuario.Controls.Add(lblPerfil);
+            grbDadosUsuario.Controls.Add(txtEmail);
+            grbDadosUsuario.Controls.Add(lblEmail);
             grbDadosUsuario.Controls.Add(txtNome);
             grbDadosUsuario.Controls.Add(lblNome);
             grbDadosUsuario.Controls.Add(lblCodigo);
@@ -197,7 +201,7 @@
             // 
             cbxPerfil.FormattingEnabled = true;
             cbxPerfil.Items.AddRange(new object[] { "Usuário", "Administrador" });
-            cbxPerfil.Location = new Point(289, 93);
+            cbxPerfil.Location = new Point(526, 93);
             cbxPerfil.Name = "cbxPerfil";
             cbxPerfil.Size = new Size(218, 23);
             cbxPerfil.TabIndex = 9;
@@ -205,27 +209,27 @@
             // lblPerfil
             // 
             lblPerfil.AutoSize = true;
-            lblPerfil.Location = new Point(289, 75);
+            lblPerfil.Location = new Point(526, 75);
             lblPerfil.Name = "lblPerfil";
             lblPerfil.Size = new Size(34, 15);
             lblPerfil.TabIndex = 8;
             lblPerfil.Text = "Perfil";
             // 
-            // txtSenha
+            // txtEmail
             // 
-            txtSenha.Location = new Point(15, 93);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(268, 23);
-            txtSenha.TabIndex = 3;
+            txtEmail.Location = new Point(15, 93);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(268, 23);
+            txtEmail.TabIndex = 3;
             // 
-            // lblSenha
+            // lblEmail
             // 
-            lblSenha.AutoSize = true;
-            lblSenha.Location = new Point(15, 75);
-            lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(39, 15);
-            lblSenha.TabIndex = 6;
-            lblSenha.Text = "Senha";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(15, 75);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(36, 15);
+            lblEmail.TabIndex = 6;
+            lblEmail.Text = "Email";
             // 
             // txtNome
             // 
@@ -258,6 +262,22 @@
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 0;
+            // 
+            // txtSenha
+            // 
+            txtSenha.Location = new Point(288, 93);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(234, 23);
+            txtSenha.TabIndex = 10;
+            // 
+            // lblSenha
+            // 
+            lblSenha.AutoSize = true;
+            lblSenha.Location = new Point(288, 75);
+            lblSenha.Name = "lblSenha";
+            lblSenha.Size = new Size(39, 15);
+            lblSenha.TabIndex = 11;
+            lblSenha.Text = "Senha";
             // 
             // FrmCadastroUsuario
             // 
@@ -298,8 +318,8 @@
         private Button btnEditar;
         private Button btnNovo;
         private GroupBox grbDadosUsuario;
-        private TextBox txtSenha;
-        private Label lblSenha;
+        private TextBox txtEmail;
+        private Label lblEmail;
         private TextBox txtNome;
         private Label lblNome;
         private Label lblCodigo;
@@ -307,5 +327,7 @@
         private ComboBox cbxPerfil;
         private Label lblPerfil;
         private ImageList imageList1;
+        private TextBox txtSenha;
+        private Label lblSenha;
     }
 }

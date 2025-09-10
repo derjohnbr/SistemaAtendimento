@@ -35,6 +35,20 @@ namespace SistemaAtendimento.View
         private void FrmCadastroSituacaoAtendimento_Load(object sender, EventArgs e)
         {
             _situacaoAtendimentoController.ListarSituacaoAtendimento();
+
+            dgvSituacoesAtendimento.Columns["Id"].HeaderText = "Código";
+            dgvSituacoesAtendimento.Columns["Nome"].HeaderText = "Nome da Situação";
+            dgvSituacoesAtendimento.Columns["Cor"].HeaderText = "Cor";
+            dgvSituacoesAtendimento.Columns["Ativo"].HeaderText = "Ativo";
+
+            // Preenche o grid com ajuste automático
+            dgvSituacoesAtendimento.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // Ajuste individual:
+            dgvSituacoesAtendimento.Columns["Id"].Width = 60;
+            dgvSituacoesAtendimento.Columns["Nome"].Width = 200;
+            dgvSituacoesAtendimento.Columns["Cor"].Width = 100;
+            dgvSituacoesAtendimento.Columns["Ativo"].Width = 60;
         }
     }
 }

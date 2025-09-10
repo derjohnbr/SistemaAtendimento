@@ -34,6 +34,23 @@ namespace SistemaAtendimento.View
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
             _usuarioController.ListarUsuarios();
+
+            dgvUsuarios.Columns["Id"].HeaderText = "Código";
+            dgvUsuarios.Columns["Nome"].HeaderText = "Nome Completo";
+            dgvUsuarios.Columns["Email"].HeaderText = "Email";
+            // dgvUsuarios.Columns["Senha"].Visible = false; // Oculta a coluna Senha
+            dgvUsuarios.Columns["Senha"].HeaderText = "Senha";
+            dgvUsuarios.Columns["Perfil"].HeaderText = "Perfil";
+
+            // Preenche o grid com ajuste automático
+            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // Ajuste individual:
+            dgvUsuarios.Columns["Id"].Width = 60;
+            dgvUsuarios.Columns["Nome"].Width = 200;
+            dgvUsuarios.Columns["Email"].Width = 200;
+            dgvUsuarios.Columns["Senha"].Width = 100;
+            dgvUsuarios.Columns["Perfil"].Width = 100;
         }
 
 

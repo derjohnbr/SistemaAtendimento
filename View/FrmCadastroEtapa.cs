@@ -33,6 +33,20 @@ namespace SistemaAtendimento.View
         private void FrmCadastroEtapa_Load(object sender, EventArgs e)
         {
             _etapaController.ListarEtapas();
+
+            dgvEtapas.Columns["Id"].HeaderText = "Código";
+            dgvEtapas.Columns["Nome"].HeaderText = "Nome da Etapa";
+            dgvEtapas.Columns["Ordem"].HeaderText = "Ordem";
+            dgvEtapas.Columns["Ativo"].HeaderText = "Ativo";
+
+            // Preenche o grid com ajuste automático
+            dgvEtapas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // Ajuste individual:
+            dgvEtapas.Columns["Id"].Width = 60;
+            dgvEtapas.Columns["Nome"].Width = 200;
+            dgvEtapas.Columns["Ordem"].Width = 100;
+            dgvEtapas.Columns["Ativo"].Width = 60;
         }
     }
 }
