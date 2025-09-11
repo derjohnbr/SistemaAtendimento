@@ -66,6 +66,7 @@
             lblCodigo = new Label();
             txtCodigo = new TextBox();
             btnNovo = new Button();
+            imlIcones = new ImageList(components);
             btnEditar = new Button();
             btnSalvar = new Button();
             btnExcluir = new Button();
@@ -75,7 +76,6 @@
             btnPesquisar = new Button();
             grbListaClientes = new GroupBox();
             dgvClientes = new DataGridView();
-            imlIcones = new ImageList(components);
             grbDadosCliente.SuspendLayout();
             pnlSituacao.SuspendLayout();
             pnlTipoPessoa.SuspendLayout();
@@ -156,13 +156,13 @@
             rdbInativo.Name = "rdbInativo";
             rdbInativo.Size = new Size(61, 19);
             rdbInativo.TabIndex = 1;
-            rdbInativo.TabStop = true;
             rdbInativo.Text = "Inativo";
             rdbInativo.UseVisualStyleBackColor = true;
             // 
             // rdbAtivo
             // 
             rdbAtivo.AutoSize = true;
+            rdbAtivo.Checked = true;
             rdbAtivo.Location = new Point(3, 8);
             rdbAtivo.Name = "rdbAtivo";
             rdbAtivo.Size = new Size(53, 19);
@@ -308,13 +308,13 @@
             rdbJuridica.Name = "rdbJuridica";
             rdbJuridica.Size = new Size(65, 19);
             rdbJuridica.TabIndex = 1;
-            rdbJuridica.TabStop = true;
             rdbJuridica.Text = "Jurídica";
             rdbJuridica.UseVisualStyleBackColor = true;
             // 
             // rdbFisica
             // 
             rdbFisica.AutoSize = true;
+            rdbFisica.Checked = true;
             rdbFisica.Location = new Point(3, 8);
             rdbFisica.Name = "rdbFisica";
             rdbFisica.Size = new Size(54, 19);
@@ -407,6 +407,7 @@
             // 
             // txtCodigo
             // 
+            txtCodigo.Enabled = false;
             txtCodigo.Location = new Point(15, 37);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(100, 23);
@@ -424,6 +425,18 @@
             btnNovo.Text = "Novo";
             btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            // 
+            // imlIcones
+            // 
+            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
+            imlIcones.TransparentColor = Color.Transparent;
+            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
+            imlIcones.Images.SetKeyName(1, "icone-editar.png");
+            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
+            imlIcones.Images.SetKeyName(3, "icone-novo.png");
+            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
+            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
             // 
             // btnEditar
             // 
@@ -450,6 +463,7 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.TextAlign = ContentAlignment.MiddleRight;
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnExcluir
             // 
@@ -520,18 +534,6 @@
             dgvClientes.Name = "dgvClientes";
             dgvClientes.Size = new Size(755, 215);
             dgvClientes.TabIndex = 0;
-            // 
-            // imlIcones
-            // 
-            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
-            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
-            imlIcones.TransparentColor = Color.Transparent;
-            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
-            imlIcones.Images.SetKeyName(1, "icone-editar.png");
-            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
-            imlIcones.Images.SetKeyName(3, "icone-novo.png");
-            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
-            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
             // 
             // FrmCadastroClientes
             // 
