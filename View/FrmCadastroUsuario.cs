@@ -53,6 +53,93 @@ namespace SistemaAtendimento.View
             dgvUsuarios.Columns["Perfil"].Width = 100;
         }
 
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Usuarios usuario = new Usuarios()
+            {
+                Nome = txtNome.Text,
+                Email = txtEmail.Text,
+                Senha = txtSenha.Text,
+                Perfil = cbxPerfil.Text,
+            };
 
+            _usuarioController.Salvar(usuario);
+
+        }
+
+        private bool ValidaDados(Usuarios usuario)
+        {
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                ExibirMensagem("O campo Nome é obrigatório.");
+                txtNome.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                ExibirMensagem("O campo Email é obrigatório.");
+                txtEmail.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtSenha.Text))
+            {
+                ExibirMensagem("O campo Senha é obrigatório.");
+                txtSenha.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(cbxPerfil.Text))
+            {
+                ExibirMensagem("O campo Senha é obrigatório.");
+                cbxPerfil.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void HabilitarCampos()
+        {
+            txtNome.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtSenha.ReadOnly = false;
+            cbxPerfil.Enabled = true;
+
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
+        }
+
+        private void LimparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtSenha.Clear();
+            cbxPerfil.Text = "";
+        }
+
+        public void DesabilitarCampos()
+        {
+            LimparCampos();
+
+            txtNome.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtSenha.ReadOnly = true;
+            cbxPerfil.Enabled = false;
+
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitarCampos();
+        }
     }
 }

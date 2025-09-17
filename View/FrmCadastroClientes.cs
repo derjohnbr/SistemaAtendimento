@@ -74,7 +74,7 @@ namespace SistemaAtendimento
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Clientes cliente = new Clientes 
+            Clientes cliente = new Clientes
             {
                 Nome = txtNome.Text,
                 Email = txtEmail.Text,
@@ -100,7 +100,7 @@ namespace SistemaAtendimento
 
         public bool ValidarDados(Clientes cliente)
         {
-            if(string.IsNullOrWhiteSpace(txtNome.Text))
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
             {
                 ExibirMensagem("O campo Nome é obrigatório.");
                 txtNome.Focus();
@@ -125,6 +125,29 @@ namespace SistemaAtendimento
                 txtCpfCnpj.Focus();
                 return false;
             }
+            else
+            {
+                if (rdbFisica.Checked)
+                {
+                    // Verifica se CPF é válido!
+                    if (!EhCpfValido(txtCpfCnpj.Text))
+                    {
+                        ExibirMensagem("CPF inválido.");
+                        txtCpfCnpj.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    //Verifica se CNPJ é válido!
+                    if (!EhCnpjValido(txtCpfCnpj.Text))
+                    {
+                        ExibirMensagem("CNPJ inválido.");
+                        txtCpfCnpj.Focus();
+                        return false;
+                    }
+                }
+            }
             if (string.IsNullOrWhiteSpace(txtCep.Text))
             {
                 ExibirMensagem("O campo CEP é obrigatório.");
@@ -143,7 +166,7 @@ namespace SistemaAtendimento
                 txtNumero.Focus();
                 return false;
             }
-            if (string.IsNullOrWhiteSpace (txtBairro.Text)) 
+            if (string.IsNullOrWhiteSpace(txtBairro.Text))
             {
                 ExibirMensagem("O campo Bairro é obrigatório.");
                 txtBairro.Focus();
@@ -164,6 +187,159 @@ namespace SistemaAtendimento
 
 
             return true;
+        }
+
+        private void rdbJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCpfCnpj.Text = "CNPJ";
+        }
+
+        private void rdbFisica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCpfCnpj.Text = "CPF";
+        }
+
+        private void HabilitarCampos()
+        {
+            txtNome.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtTelefone.ReadOnly = false;
+            txtCelular.ReadOnly = false;
+            pnlTipoPessoa.Enabled = true;
+            txtCpfCnpj.ReadOnly = false;
+            txtCep.ReadOnly = false;
+            txtEndereco.ReadOnly = false;
+            txtNumero.ReadOnly = false;
+            txtBairro.ReadOnly = false;
+            txtComplemento.ReadOnly = false;
+            txtCidade.ReadOnly = false;
+            cbxEstado.Enabled = true;
+            pnlSituacao.Enabled = true;
+
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
+        }
+
+        private void LimparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtTelefone.Clear();
+            txtCelular.Clear();
+            rdbFisica.Checked = true;
+            txtCpfCnpj.Clear();
+            txtCep.Clear();
+            txtEndereco.Clear();
+            txtNumero.Clear();
+            txtBairro.Clear();
+            txtComplemento.Clear();
+            txtCidade.Clear();
+            cbxEstado.Text = "";
+            rdbAtivo.Checked = true;
+        }
+
+        public void DesabilitarCampos()
+        {
+            LimparCampos();
+
+            txtNome.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtTelefone.ReadOnly = true;
+            txtCelular.ReadOnly = true;
+            pnlTipoPessoa.Enabled = false;
+            txtCpfCnpj.ReadOnly = true;
+            txtCep.ReadOnly = true;
+            txtEndereco.ReadOnly = true;
+            txtNumero.ReadOnly = true;
+            txtBairro.ReadOnly = true;
+            txtComplemento.ReadOnly = true;
+            txtCidade.ReadOnly = true;
+            cbxEstado.Enabled = false;
+            pnlSituacao.Enabled = false;
+
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+        }
+
+        // Método auxiliar para validação de CPF
+        private static bool EhCpfValido(string cpf)
+        {
+            cpf = cpf.Replace(".", "").Replace("-", "").Trim();
+            if (cpf.Length != 11 || !cpf.All(char.IsDigit))
+                return false;
+
+            // Elimina CPFs com todos os dígitos iguais
+            if (new string(cpf[0], cpf.Length) == cpf)
+                return false;
+
+            int[] multiplicador1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+            string tempCpf = cpf.Substring(0, 9);
+            int soma = 0;
+
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+
+            int resto = soma % 11;
+            int digito = resto < 2 ? 0 : 11 - resto;
+            tempCpf += digito;
+            soma = 0;
+
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+
+            resto = soma % 11;
+            digito = resto < 2 ? 0 : 11 - resto;
+
+            return cpf.EndsWith(tempCpf.Substring(9, 1) + digito.ToString());
+        }
+
+        // Método auxiliar para validação de CNPJ
+        private static bool EhCnpjValido(string cnpj)
+        {
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Trim();
+            if (cnpj.Length != 14 || !cnpj.All(char.IsDigit))
+                return false;
+
+            // Elimina CNPJs com todos os dígitos iguais
+            if (new string(cnpj[0], cnpj.Length) == cnpj)
+                return false;
+
+            int[] multiplicador1 = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+            string tempCnpj = cnpj.Substring(0, 12);
+            int soma = 0;
+
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+
+            int resto = soma % 11;
+            int digito = resto < 2 ? 0 : 11 - resto;
+            tempCnpj += digito;
+            soma = 0;
+
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+
+            resto = soma % 11;
+            digito = resto < 2 ? 0 : 11 - resto;
+
+            return cnpj.EndsWith(tempCnpj.Substring(12, 1) + digito.ToString());
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitarCampos();
         }
     }
 }

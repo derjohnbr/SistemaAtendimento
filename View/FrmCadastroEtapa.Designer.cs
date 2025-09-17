@@ -116,6 +116,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Enabled = false;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
             btnCancelar.ImageIndex = 0;
             btnCancelar.ImageList = imageList1;
@@ -126,9 +127,11 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcluir.ImageIndex = 2;
             btnExcluir.ImageList = imageList1;
@@ -142,6 +145,7 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.Enabled = false;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
             btnSalvar.ImageIndex = 5;
             btnSalvar.ImageList = imageList1;
@@ -152,9 +156,11 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.TextAlign = ContentAlignment.MiddleRight;
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.ImageIndex = 1;
             btnEditar.ImageList = imageList1;
@@ -178,6 +184,7 @@
             btnNovo.Text = "Novo";
             btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            btnNovo.Click += btnNovo_Click;
             // 
             // grbDadosEtapa
             // 
@@ -200,6 +207,7 @@
             // 
             pnlSituacao.Controls.Add(rdbInativo);
             pnlSituacao.Controls.Add(rdbAtivo);
+            pnlSituacao.Enabled = false;
             pnlSituacao.Location = new Point(619, 87);
             pnlSituacao.Name = "pnlSituacao";
             pnlSituacao.Size = new Size(130, 36);
@@ -212,13 +220,13 @@
             rdbInativo.Name = "rdbInativo";
             rdbInativo.Size = new Size(61, 19);
             rdbInativo.TabIndex = 1;
-            rdbInativo.TabStop = true;
             rdbInativo.Text = "Inativo";
             rdbInativo.UseVisualStyleBackColor = true;
             // 
             // rdbAtivo
             // 
             rdbAtivo.AutoSize = true;
+            rdbAtivo.Checked = true;
             rdbAtivo.Location = new Point(3, 8);
             rdbAtivo.Name = "rdbAtivo";
             rdbAtivo.Size = new Size(53, 19);
@@ -240,6 +248,7 @@
             // 
             txtOrdem.Location = new Point(15, 93);
             txtOrdem.Name = "txtOrdem";
+            txtOrdem.ReadOnly = true;
             txtOrdem.Size = new Size(146, 23);
             txtOrdem.TabIndex = 3;
             // 
@@ -256,6 +265,7 @@
             // 
             txtNome.Location = new Point(121, 37);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(627, 23);
             txtNome.TabIndex = 1;
             // 
@@ -281,6 +291,7 @@
             // 
             txtCodigo.Location = new Point(15, 37);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 0;
             // 

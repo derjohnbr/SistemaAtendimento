@@ -42,6 +42,8 @@
             btnEditar = new Button();
             btnNovo = new Button();
             grbDadosUsuario = new GroupBox();
+            txtSenha = new TextBox();
+            lblSenha = new Label();
             cbxPerfil = new ComboBox();
             lblPerfil = new Label();
             txtEmail = new TextBox();
@@ -50,8 +52,6 @@
             lblNome = new Label();
             lblCodigo = new Label();
             txtCodigo = new TextBox();
-            txtSenha = new TextBox();
-            lblSenha = new Label();
             grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             grbDadosUsuario.SuspendLayout();
@@ -115,6 +115,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Enabled = false;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
             btnCancelar.ImageIndex = 0;
             btnCancelar.ImageList = imageList1;
@@ -125,9 +126,11 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcluir.ImageIndex = 2;
             btnExcluir.ImageList = imageList1;
@@ -141,6 +144,7 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.Enabled = false;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
             btnSalvar.ImageIndex = 5;
             btnSalvar.ImageList = imageList1;
@@ -151,9 +155,11 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.TextAlign = ContentAlignment.MiddleRight;
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.ImageIndex = 1;
             btnEditar.ImageList = imageList1;
@@ -177,6 +183,7 @@
             btnNovo.Text = "Novo";
             btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            btnNovo.Click += btnNovo_Click;
             // 
             // grbDadosUsuario
             // 
@@ -197,8 +204,26 @@
             grbDadosUsuario.TabStop = false;
             grbDadosUsuario.Text = "Dados do Usuário";
             // 
+            // txtSenha
+            // 
+            txtSenha.Location = new Point(288, 93);
+            txtSenha.Name = "txtSenha";
+            txtSenha.ReadOnly = true;
+            txtSenha.Size = new Size(234, 23);
+            txtSenha.TabIndex = 10;
+            // 
+            // lblSenha
+            // 
+            lblSenha.AutoSize = true;
+            lblSenha.Location = new Point(288, 75);
+            lblSenha.Name = "lblSenha";
+            lblSenha.Size = new Size(39, 15);
+            lblSenha.TabIndex = 11;
+            lblSenha.Text = "Senha";
+            // 
             // cbxPerfil
             // 
+            cbxPerfil.Enabled = false;
             cbxPerfil.FormattingEnabled = true;
             cbxPerfil.Items.AddRange(new object[] { "Usuário", "Administrador" });
             cbxPerfil.Location = new Point(526, 93);
@@ -219,6 +244,7 @@
             // 
             txtEmail.Location = new Point(15, 93);
             txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(268, 23);
             txtEmail.TabIndex = 3;
             // 
@@ -235,6 +261,7 @@
             // 
             txtNome.Location = new Point(121, 37);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(627, 23);
             txtNome.TabIndex = 1;
             // 
@@ -260,24 +287,9 @@
             // 
             txtCodigo.Location = new Point(15, 37);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 0;
-            // 
-            // txtSenha
-            // 
-            txtSenha.Location = new Point(288, 93);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(234, 23);
-            txtSenha.TabIndex = 10;
-            // 
-            // lblSenha
-            // 
-            lblSenha.AutoSize = true;
-            lblSenha.Location = new Point(288, 75);
-            lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(39, 15);
-            lblSenha.TabIndex = 11;
-            lblSenha.Text = "Senha";
             // 
             // FrmCadastroUsuario
             // 

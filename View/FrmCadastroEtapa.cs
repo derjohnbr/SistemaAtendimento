@@ -48,5 +48,86 @@ namespace SistemaAtendimento.View
             dgvEtapas.Columns["Ordem"].Width = 100;
             dgvEtapas.Columns["Ativo"].Width = 60;
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Etapas etapa = new Etapas()
+            {
+                Nome = txtNome.Text,
+                Ordem = txtOrdem.Text,
+                Ativo = rdbAtivo.Checked,
+            };
+
+            if (!ValidaDados(etapa))
+                return;
+
+            _etapaController.Salvar(etapa);
+        }
+
+        private bool ValidaDados(Etapas Etapa)
+        {
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                ExibirMensagem("O campo Nome é obrigatório.");
+                txtNome.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtOrdem.Text))
+            {
+                ExibirMensagem("O campo Ordem é obrigatório.");
+                txtOrdem.Focus();
+                return false;
+            }
+            if (!int.TryParse(txtOrdem.Text, out _))
+            {
+                ExibirMensagem("O campo Ordem deve ser número inteiro.");
+                txtOrdem.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void HabilitarCampos()
+        {
+            txtNome.ReadOnly = false;
+            txtOrdem.ReadOnly = false;
+            pnlSituacao.Enabled = true;
+
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
+        }
+
+        private void LimparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtOrdem.Clear();
+            rdbAtivo.Checked = true;
+        }
+
+        public void DesabilitarCampos()
+        {
+            LimparCampos();
+
+            txtNome.ReadOnly = true;
+            txtOrdem.ReadOnly = true;
+            pnlSituacao.Enabled = false;
+
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitarCampos();
+        }
     }
 }

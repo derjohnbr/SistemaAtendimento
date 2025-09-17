@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaAtendimento.Model;
 using SistemaAtendimento.Repositories;
 using SistemaAtendimento.View;
 
@@ -28,6 +29,23 @@ namespace SistemaAtendimento.Controller
             catch (Exception ex)
             {
                 _frmCadastroUsuario.ExibirMensagem($"Erro ao carregar os clientes: {ex.Message}");
+            }
+        }
+
+        public void Salvar(Usuarios usuario)
+        {
+            try
+            {
+                _usuarioRepository.Inserir(usuario);
+                _frmCadastroUsuario.ExibirMensagem($"Etapa cadastrada com sucesso!");
+
+                ListarUsuarios();
+
+                _frmCadastroUsuario.DesabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroUsuario.ExibirMensagem($"Erro ao Cadastrar Etapa: {ex.Message}");
             }
         }
     }

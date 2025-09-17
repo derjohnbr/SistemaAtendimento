@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAtendimento.Model
 {
-    internal class Etapas
+    public class Etapas
     {
         public int Id { get; set; }
         public string? Nome { get; set; }

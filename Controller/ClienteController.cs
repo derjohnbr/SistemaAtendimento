@@ -39,6 +39,8 @@ namespace SistemaAtendimento.Controller
                 _frmCadastroCliente.ExibirMensagem($"Cliente cadastrado com sucesso!");
                 
                 ListarClientes(); // Atualiza a lista de clientes após a inserção
+
+                _frmCadastroCliente.DesabilitarCampos();
             }
             catch (Exception ex)
             {

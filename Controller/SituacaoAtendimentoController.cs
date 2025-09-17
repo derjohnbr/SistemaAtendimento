@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaAtendimento.Model;
 using SistemaAtendimento.Repositories;
 using SistemaAtendimento.View;
 
@@ -28,6 +29,23 @@ namespace SistemaAtendimento.Controller
             catch (Exception ex)
             {
                 _frmCadastroSituacaoAtendimento.ExibirMensagem($"Erro ao carregar os clientes: {ex.Message}");
+            }
+        }
+
+        public void Salvar(SituacaoAtendimentos situacaoAtendimento)
+        {
+            try
+            {
+                _situacaoAtendimentoRepository.Inserir(situacaoAtendimento);
+                _frmCadastroSituacaoAtendimento.ExibirMensagem($"Situação Atendimento cadastrado com sucesso!");
+
+                ListarSituacaoAtendimento();
+
+                //_frmCadastroSituacaoAtendimento.DesabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroSituacaoAtendimento.ExibirMensagem($"Erro ao Cadastrar Situação Atendimento: {ex.Message}");
             }
         }
     }

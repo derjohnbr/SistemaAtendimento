@@ -50,5 +50,10 @@ namespace SistemaAtendimento.View
             dgvSituacoesAtendimento.Columns["Cor"].Width = 100;
             dgvSituacoesAtendimento.Columns["Ativo"].Width = 60;
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
