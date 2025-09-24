@@ -63,7 +63,7 @@ namespace SistemaAtendimento.View
             if (!ValidaDados(situacaoAtendimentos))
                 return;
 
-            if(string.IsNullOrEmpty(txtCodigo.Text))
+            if (string.IsNullOrEmpty(txtCodigo.Text))
                 _situacaoAtendimentoController.Salvar(situacaoAtendimentos);
             else
             {
@@ -115,6 +115,7 @@ namespace SistemaAtendimento.View
             pnlSituacao.Enabled = false;
             btnSalvar.Enabled = false;
             btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
             btnCancelar.Enabled = false;
         }
 
@@ -141,6 +142,7 @@ namespace SistemaAtendimento.View
 
                 btnNovo.Enabled = false;
                 btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
                 btnCancelar.Enabled = true;
             }
         }
@@ -149,6 +151,24 @@ namespace SistemaAtendimento.View
         {
             HabilitarCampos();
             btnEditar.Enabled = false;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                ExibirMensagem("Nenhum situação de atendimento selecionado para exclusão.");
+                return;
+            }
+            else
+            {
+                DialogResult resultado = MessageBox.Show($"Deseja Excluir esta Situação de Atendimento?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(txtCodigo.Text);
+                    _situacaoAtendimentoController.Excluir(id);
+                }
+            }
         }
     }
 }

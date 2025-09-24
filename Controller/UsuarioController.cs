@@ -63,5 +63,20 @@ namespace SistemaAtendimento.Controller
                 _frmCadastroUsuario.ExibirMensagem($"Erro ao atualizar Etapa: {ex.Message}");
             }
         }
+
+        public void Excluir(int id)
+        {
+            try
+            {
+                _usuarioRepository.Excluir(id);
+                _frmCadastroUsuario.ExibirMensagem($"Etapa excluída com sucesso!");
+                ListarUsuarios();
+                _frmCadastroUsuario.DesabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroUsuario.ExibirMensagem($"Erro ao excluir Etapa: {ex.Message}");
+            }
+        }
     }
 }

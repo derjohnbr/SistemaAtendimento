@@ -72,7 +72,7 @@ namespace SistemaAtendimento.View
                 usuario.Id = Convert.ToInt32(txtCodigo.Text);
                 _usuarioController.Atualizar(usuario);
             }
-            
+
 
         }
 
@@ -138,6 +138,8 @@ namespace SistemaAtendimento.View
 
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
             btnCancelar.Enabled = false;
         }
 
@@ -165,6 +167,7 @@ namespace SistemaAtendimento.View
 
                 btnNovo.Enabled = false;
                 btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
                 btnCancelar.Enabled = true;
             }
         }
@@ -173,6 +176,24 @@ namespace SistemaAtendimento.View
         {
             HabilitarCampos();
             btnEditar.Enabled = false;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                ExibirMensagem("Selecione um usuário para excluir.");
+                return;
+            }
+            else
+            {
+                DialogResult resultado = MessageBox.Show($"Deseja Excluir este Usuário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(txtCodigo.Text);
+                    _usuarioController.Excluir(id);
+                }
+            }
         }
     }
 }
