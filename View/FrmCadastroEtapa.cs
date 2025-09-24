@@ -61,7 +61,16 @@ namespace SistemaAtendimento.View
             if (!ValidaDados(etapa))
                 return;
 
-            _etapaController.Salvar(etapa);
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                _etapaController.Salvar(etapa);
+            }
+            else
+            {
+                etapa.Id = Convert.ToInt32(txtCodigo.Text);
+                _etapaController.Atualizar(etapa);
+            }
+
         }
 
         private bool ValidaDados(Etapas Etapa)
@@ -128,6 +137,30 @@ namespace SistemaAtendimento.View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DesabilitarCampos();
+        }
+
+        private void dgvEtapas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvEtapas.Rows[e.RowIndex];
+
+                txtCodigo.Text = row.Cells["Id"].Value.ToString();
+                txtNome.Text = row.Cells["Nome"].Value.ToString();
+                txtOrdem.Text = row.Cells["Ordem"].Value.ToString();
+                rdbAtivo.Checked = Convert.ToBoolean(row.Cells["Ativo"].Value);
+                rdbInativo.Checked = !Convert.ToBoolean(row.Cells["Ativo"].Value);
+
+                btnNovo.Enabled = false;
+                btnEditar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+            btnEditar.Enabled = false;
         }
     }
 }

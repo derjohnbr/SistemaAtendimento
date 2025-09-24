@@ -72,9 +72,13 @@
             // 
             dgvSituacoesAtendimento.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSituacoesAtendimento.Location = new Point(6, 22);
+            dgvSituacoesAtendimento.MultiSelect = false;
             dgvSituacoesAtendimento.Name = "dgvSituacoesAtendimento";
+            dgvSituacoesAtendimento.ReadOnly = true;
+            dgvSituacoesAtendimento.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSituacoesAtendimento.Size = new Size(755, 215);
             dgvSituacoesAtendimento.TabIndex = 0;
+            dgvSituacoesAtendimento.CellMouseDoubleClick += dgvSituacoesAtendimento_CellMouseDoubleClick;
             // 
             // btnPesquisar
             // 
@@ -116,6 +120,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Enabled = false;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
             btnCancelar.ImageIndex = 0;
             btnCancelar.ImageList = imlIcones;
@@ -126,9 +131,11 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcluir.ImageIndex = 2;
             btnExcluir.ImageList = imlIcones;
@@ -142,6 +149,7 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.Enabled = false;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
             btnSalvar.ImageIndex = 5;
             btnSalvar.ImageList = imlIcones;
@@ -156,6 +164,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.ImageIndex = 1;
             btnEditar.ImageList = imlIcones;
@@ -166,6 +175,7 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnNovo
             // 
@@ -179,6 +189,7 @@
             btnNovo.Text = "Novo";
             btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            btnNovo.Click += btnNovo_Click;
             // 
             // grbDadosSituacaoAtendimento
             // 
@@ -201,6 +212,7 @@
             // 
             pnlSituacao.Controls.Add(rdbInativo);
             pnlSituacao.Controls.Add(rdbAtivo);
+            pnlSituacao.Enabled = false;
             pnlSituacao.Location = new Point(619, 87);
             pnlSituacao.Name = "pnlSituacao";
             pnlSituacao.Size = new Size(130, 36);
@@ -213,13 +225,13 @@
             rdbInativo.Name = "rdbInativo";
             rdbInativo.Size = new Size(61, 19);
             rdbInativo.TabIndex = 1;
-            rdbInativo.TabStop = true;
             rdbInativo.Text = "Inativo";
             rdbInativo.UseVisualStyleBackColor = true;
             // 
             // rdbAtivo
             // 
             rdbAtivo.AutoSize = true;
+            rdbAtivo.Checked = true;
             rdbAtivo.Location = new Point(3, 8);
             rdbAtivo.Name = "rdbAtivo";
             rdbAtivo.Size = new Size(53, 19);
@@ -241,6 +253,7 @@
             // 
             txtCor.Location = new Point(15, 93);
             txtCor.Name = "txtCor";
+            txtCor.ReadOnly = true;
             txtCor.Size = new Size(146, 23);
             txtCor.TabIndex = 3;
             // 
@@ -257,6 +270,7 @@
             // 
             txtNome.Location = new Point(121, 37);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(627, 23);
             txtNome.TabIndex = 1;
             // 
@@ -282,6 +296,7 @@
             // 
             txtCodigo.Location = new Point(15, 37);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 0;
             // 

@@ -72,9 +72,13 @@
             // 
             dgvEtapas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEtapas.Location = new Point(6, 22);
+            dgvEtapas.MultiSelect = false;
             dgvEtapas.Name = "dgvEtapas";
+            dgvEtapas.ReadOnly = true;
+            dgvEtapas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEtapas.Size = new Size(755, 215);
             dgvEtapas.TabIndex = 0;
+            dgvEtapas.CellMouseDoubleClick += dgvEtapas_CellMouseDoubleClick;
             // 
             // btnPesquisar
             // 
@@ -171,6 +175,7 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnNovo
             // 

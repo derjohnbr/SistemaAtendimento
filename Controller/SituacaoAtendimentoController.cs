@@ -41,11 +41,26 @@ namespace SistemaAtendimento.Controller
 
                 ListarSituacaoAtendimento();
 
-                //_frmCadastroSituacaoAtendimento.DesabilitarCampos();
+                _frmCadastroSituacaoAtendimento.DesabilitarCampos();
             }
             catch (Exception ex)
             {
                 _frmCadastroSituacaoAtendimento.ExibirMensagem($"Erro ao Cadastrar Situação Atendimento: {ex.Message}");
+            }
+        }
+
+        public void Atualizar(SituacaoAtendimentos situacaoAtendimento)
+        {
+            try
+            {
+                _situacaoAtendimentoRepository.Atualizar(situacaoAtendimento);
+                _frmCadastroSituacaoAtendimento.ExibirMensagem($"Situação Atendimento atualizado com sucesso!");
+                ListarSituacaoAtendimento();
+                _frmCadastroSituacaoAtendimento.DesabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroSituacaoAtendimento.ExibirMensagem($"Erro ao Atualizar Situação Atendimento: {ex.Message}");
             }
         }
     }

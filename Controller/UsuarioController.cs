@@ -48,5 +48,20 @@ namespace SistemaAtendimento.Controller
                 _frmCadastroUsuario.ExibirMensagem($"Erro ao Cadastrar Etapa: {ex.Message}");
             }
         }
+
+        public void Atualizar(Usuarios usuario)
+        {
+            try
+            {
+                _usuarioRepository.Atualizar(usuario);
+                _frmCadastroUsuario.ExibirMensagem($"Etapa atualizada com sucesso!");
+                ListarUsuarios();
+                _frmCadastroUsuario.DesabilitarCampos();
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroUsuario.ExibirMensagem($"Erro ao atualizar Etapa: {ex.Message}");
+            }
+        }
     }
 }

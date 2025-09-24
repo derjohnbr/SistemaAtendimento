@@ -63,7 +63,16 @@ namespace SistemaAtendimento.View
                 Perfil = cbxPerfil.Text,
             };
 
-            _usuarioController.Salvar(usuario);
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                _usuarioController.Salvar(usuario);
+            }
+            else
+            {
+                usuario.Id = Convert.ToInt32(txtCodigo.Text);
+                _usuarioController.Atualizar(usuario);
+            }
+            
 
         }
 
@@ -140,6 +149,30 @@ namespace SistemaAtendimento.View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DesabilitarCampos();
+        }
+
+        private void dgvUsuarios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
+
+                txtCodigo.Text = row.Cells["Id"].Value.ToString();
+                txtNome.Text = row.Cells["Nome"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                txtSenha.Text = row.Cells["Senha"].Value.ToString();
+                cbxPerfil.Text = row.Cells["Perfil"].Value.ToString();
+
+                btnNovo.Enabled = false;
+                btnEditar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+            btnEditar.Enabled = false;
         }
     }
 }
