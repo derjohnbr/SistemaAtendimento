@@ -291,6 +291,7 @@
             // 
             // txtCodigo
             // 
+            txtCodigo.Enabled = false;
             txtCodigo.Location = new Point(15, 37);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.ReadOnly = true;
