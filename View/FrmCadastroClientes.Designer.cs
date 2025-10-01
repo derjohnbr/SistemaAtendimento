@@ -256,6 +256,7 @@
             txtCep.ReadOnly = true;
             txtCep.Size = new Size(146, 23);
             txtCep.TabIndex = 7;
+            txtCep.Leave += txtCep_Leave;
             // 
             // lblNumero
             // 
