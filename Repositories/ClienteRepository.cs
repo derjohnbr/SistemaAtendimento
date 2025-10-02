@@ -11,16 +11,25 @@ namespace SistemaAtendimento.Repositories
 {
     public class ClienteRepository
     {
-        public List<Clientes> Listar()
+        public List<Clientes> Listar(string termo = "")
         { 
             var clientes = new List<Clientes>();
 
             using (var conexao = ConexaoDB.GetConexao())
             {
                 string sql = "SELECT * FROM clientes";
+                if (!string.IsNullOrEmpty(termo))
+                {
+                    sql = "SELECT * FROM clientes WHERE nome LIKE @termo OR email LIKE @termo";
+                }
 
                 using (var comando = new SqlCommand(sql, conexao))
                 {
+                    if (!string.IsNullOrEmpty(termo))
+                    {
+                        comando.Parameters.AddWithValue("@termo", $"%{termo}%");
+                    }
+
                     conexao.Open();
                     using (var linhas = comando.ExecuteReader())
                     {

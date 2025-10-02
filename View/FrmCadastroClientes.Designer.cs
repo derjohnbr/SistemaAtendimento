@@ -545,6 +545,7 @@
             btnPesquisar.Size = new Size(48, 23);
             btnPesquisar.TabIndex = 21;
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // grbListaClientes
             // 

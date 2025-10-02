@@ -170,5 +170,11 @@ namespace SistemaAtendimento.View
                 }
             }
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string termo = txtPesquisar.Text.Trim();
+            _situacaoAtendimentoController.ListarSituacaoAtendimento(termo);
+        }
     }
 }

@@ -19,11 +19,11 @@ namespace SistemaAtendimento.Controller
             _etapaRepository = new EtapaRepository();
         }
 
-        public void ListarEtapas()
+        public void ListarEtapas(string termo = "")
         {
             try
             {
-                var listaEtapas = _etapaRepository.Listar();
+                var listaEtapas = _etapaRepository.Listar(termo);
                 _frmCadastroEtapa.ExibirEtapas(listaEtapas);
             }
             catch (Exception ex)

@@ -180,7 +180,7 @@ namespace SistemaAtendimento.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtCodigo.Text))
+            if (string.IsNullOrEmpty(txtCodigo.Text))
             {
                 ExibirMensagem("Selecione um usuário para excluir.");
                 return;
@@ -194,6 +194,12 @@ namespace SistemaAtendimento.View
                     _usuarioController.Excluir(id);
                 }
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string termo = txtPesquisar.Text.Trim();
+            _usuarioController.ListarUsuarios(termo);
         }
     }
 }

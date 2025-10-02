@@ -11,16 +11,25 @@ namespace SistemaAtendimento.Repositories
 {
     internal class EtapaRepository
     {
-        public List<Etapas> Listar()
+        public List<Etapas> Listar(string termo = "")
         {
             var etapas = new List<Etapas>();
 
             using (var conexao = ConexaoDB.GetConexao())
             {
                 string sql = "SELECT * FROM etapas";
+                if (!string.IsNullOrEmpty(termo))
+                {
+                    sql = "SELECT * FROM etapas WHERE nome LIKE @termo";
+                }
 
                 using (var comando = new SqlCommand(sql, conexao))
                 {
+                    if (!string.IsNullOrEmpty(termo))
+                    {
+                        comando.Parameters.AddWithValue("@termo", $"%{termo}%");
+                    }
+
                     conexao.Open();
                     using (var linhas = comando.ExecuteReader())
                     {

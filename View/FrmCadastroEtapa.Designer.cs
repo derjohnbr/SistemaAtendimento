@@ -89,6 +89,7 @@
             btnPesquisar.Size = new Size(48, 23);
             btnPesquisar.TabIndex = 41;
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // imageList1
             // 

@@ -19,11 +19,11 @@ namespace SistemaAtendimento.Controller
             _situacaoAtendimentoRepository = new SituacaoAtendimentoRepository();
         }
 
-        public void ListarSituacaoAtendimento()
+        public void ListarSituacaoAtendimento(string termo = "")
         {
             try
             {
-                var listaSituacaoAtendimentos = _situacaoAtendimentoRepository.Listar();
+                var listaSituacaoAtendimentos = _situacaoAtendimentoRepository.Listar(termo);
                 _frmCadastroSituacaoAtendimento.ExibirSituacaoAtendimento(listaSituacaoAtendimentos);
             }
             catch (Exception ex)

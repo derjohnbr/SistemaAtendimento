@@ -466,5 +466,11 @@ namespace SistemaAtendimento
                 await BuscarEnderecoPorCep(txtCep.Text);
             }
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string termo = txtPesquisar.Text.Trim();
+            _clienteController.ListarClientes(termo);
+        }
     }
 }
