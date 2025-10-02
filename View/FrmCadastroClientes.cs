@@ -423,14 +423,14 @@ namespace SistemaAtendimento
         {
             try
             {
-                cep = cep.Replace("-", "").Trim();
+                cep = cep.Replace("-", "").Replace(".", "").Trim();
                 using (HttpClient client = new HttpClient())
                 {
                     string url = $"https://viacep.com.br/ws/{cep}/json/";
 
                     var response = await client.GetAsync(url);
 
-                    if(response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
                         string json = await response.Content.ReadAsStringAsync();
                         dynamic? dadosEndereco = JsonConvert.DeserializeObject(json);
@@ -459,10 +459,10 @@ namespace SistemaAtendimento
             }
         }
 
-        private async void txtCep_Leave(object sender, EventArgs e)
+        private async void txtCep_Leave_1(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtCep.Text))
-            { 
+            {
                 await BuscarEnderecoPorCep(txtCep.Text);
             }
         }

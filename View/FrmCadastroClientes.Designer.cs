@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroClientes));
             grbDadosCliente = new GroupBox();
+            txtCelular = new MaskedTextBox();
+            txtTelefone = new MaskedTextBox();
+            txtCep = new MaskedTextBox();
             lblEstado = new Label();
             cbxEstado = new ComboBox();
             pnlSituacao = new Panel();
@@ -45,7 +48,6 @@
             lblBairro = new Label();
             txtNumero = new TextBox();
             txtEndereco = new TextBox();
-            txtCep = new TextBox();
             lblNumero = new Label();
             lblEndereco = new Label();
             lblCep = new Label();
@@ -55,8 +57,6 @@
             rdbJuridica = new RadioButton();
             rdbFisica = new RadioButton();
             lblTipoPessoa = new Label();
-            txtCelular = new TextBox();
-            txtTelefone = new TextBox();
             lblCelular = new Label();
             lblTelefone = new Label();
             txtEmail = new TextBox();
@@ -85,6 +85,9 @@
             // 
             // grbDadosCliente
             // 
+            grbDadosCliente.Controls.Add(txtCelular);
+            grbDadosCliente.Controls.Add(txtTelefone);
+            grbDadosCliente.Controls.Add(txtCep);
             grbDadosCliente.Controls.Add(lblEstado);
             grbDadosCliente.Controls.Add(cbxEstado);
             grbDadosCliente.Controls.Add(pnlSituacao);
@@ -97,7 +100,6 @@
             grbDadosCliente.Controls.Add(lblBairro);
             grbDadosCliente.Controls.Add(txtNumero);
             grbDadosCliente.Controls.Add(txtEndereco);
-            grbDadosCliente.Controls.Add(txtCep);
             grbDadosCliente.Controls.Add(lblNumero);
             grbDadosCliente.Controls.Add(lblEndereco);
             grbDadosCliente.Controls.Add(lblCep);
@@ -105,8 +107,6 @@
             grbDadosCliente.Controls.Add(lblCpfCnpj);
             grbDadosCliente.Controls.Add(pnlTipoPessoa);
             grbDadosCliente.Controls.Add(lblTipoPessoa);
-            grbDadosCliente.Controls.Add(txtCelular);
-            grbDadosCliente.Controls.Add(txtTelefone);
             grbDadosCliente.Controls.Add(lblCelular);
             grbDadosCliente.Controls.Add(lblTelefone);
             grbDadosCliente.Controls.Add(txtEmail);
@@ -121,6 +121,34 @@
             grbDadosCliente.TabIndex = 0;
             grbDadosCliente.TabStop = false;
             grbDadosCliente.Text = "Dados do Cliente";
+            // 
+            // txtCelular
+            // 
+            txtCelular.Location = new Point(167, 93);
+            txtCelular.Mask = "(99) 00000-0000";
+            txtCelular.Name = "txtCelular";
+            txtCelular.ReadOnly = true;
+            txtCelular.Size = new Size(154, 23);
+            txtCelular.TabIndex = 4;
+            // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(15, 93);
+            txtTelefone.Mask = "(99) 0000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.ReadOnly = true;
+            txtTelefone.Size = new Size(146, 23);
+            txtTelefone.TabIndex = 3;
+            // 
+            // txtCep
+            // 
+            txtCep.Location = new Point(15, 157);
+            txtCep.Mask = "00,000-000";
+            txtCep.Name = "txtCep";
+            txtCep.ReadOnly = true;
+            txtCep.Size = new Size(146, 23);
+            txtCep.TabIndex = 7;
+            txtCep.Leave += txtCep_Leave_1;
             // 
             // lblEstado
             // 
@@ -249,15 +277,6 @@
             txtEndereco.Size = new Size(325, 23);
             txtEndereco.TabIndex = 8;
             // 
-            // txtCep
-            // 
-            txtCep.Location = new Point(15, 157);
-            txtCep.Name = "txtCep";
-            txtCep.ReadOnly = true;
-            txtCep.Size = new Size(146, 23);
-            txtCep.TabIndex = 7;
-            txtCep.Leave += txtCep_Leave;
-            // 
             // lblNumero
             // 
             lblNumero.AutoSize = true;
@@ -344,22 +363,6 @@
             lblTipoPessoa.Size = new Size(69, 15);
             lblTipoPessoa.TabIndex = 10;
             lblTipoPessoa.Text = "Tipo Pessoa";
-            // 
-            // txtCelular
-            // 
-            txtCelular.Location = new Point(167, 93);
-            txtCelular.Name = "txtCelular";
-            txtCelular.ReadOnly = true;
-            txtCelular.Size = new Size(154, 23);
-            txtCelular.TabIndex = 4;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Location = new Point(15, 93);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.ReadOnly = true;
-            txtTelefone.Size = new Size(146, 23);
-            txtTelefone.TabIndex = 3;
             // 
             // lblCelular
             // 
@@ -607,8 +610,6 @@
         private Label lblNome;
         private Label lblCodigo;
         private TextBox txtCodigo;
-        private TextBox txtCelular;
-        private TextBox txtTelefone;
         private Label lblCelular;
         private Label lblTelefone;
         private Panel pnlTipoPessoa;
@@ -625,7 +626,6 @@
         private Label lblBairro;
         private TextBox txtNumero;
         private TextBox txtEndereco;
-        private TextBox txtCep;
         private Label lblNumero;
         private Label lblEndereco;
         private Label lblCep;
@@ -646,5 +646,8 @@
         private GroupBox grbListaClientes;
         private DataGridView dgvClientes;
         private ImageList imlIcones;
+        private MaskedTextBox txtCep;
+        private MaskedTextBox txtTelefone;
+        private MaskedTextBox txtCelular;
     }
 }
