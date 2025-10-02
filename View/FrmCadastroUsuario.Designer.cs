@@ -313,7 +313,10 @@
             Controls.Add(btnEditar);
             Controls.Add(btnNovo);
             Controls.Add(grbDadosUsuario);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCadastroUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Usuários";
             Load += FrmCadastroUsuario_Load;
             grbListaUsuarios.ResumeLayout(false);

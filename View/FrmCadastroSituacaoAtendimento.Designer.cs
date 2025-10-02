@@ -317,7 +317,10 @@
             Controls.Add(btnEditar);
             Controls.Add(btnNovo);
             Controls.Add(grbDadosSituacaoAtendimento);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCadastroSituacaoAtendimento";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCadastroSituacaoAtendimento";
             Load += FrmCadastroSituacaoAtendimento_Load;
             grbListaSituacoesAtendimento.ResumeLayout(false);

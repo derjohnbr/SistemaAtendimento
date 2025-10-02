@@ -48,7 +48,7 @@
             mnuTelaPrincipal.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, atendimentosToolStripMenuItem, sistemaToolStripMenuItem });
             mnuTelaPrincipal.Location = new Point(0, 0);
             mnuTelaPrincipal.Name = "mnuTelaPrincipal";
-            mnuTelaPrincipal.Size = new Size(800, 24);
+            mnuTelaPrincipal.Size = new Size(1240, 24);
             mnuTelaPrincipal.TabIndex = 0;
             mnuTelaPrincipal.Text = "menuStrip1";
             // 
@@ -122,7 +122,7 @@
             // 
             // btnConexao_Click
             // 
-            btnConexao_Click.Location = new Point(656, 385);
+            btnConexao_Click.Location = new Point(1117, 768);
             btnConexao_Click.Name = "btnConexao_Click";
             btnConexao_Click.Size = new Size(111, 23);
             btnConexao_Click.TabIndex = 1;
@@ -134,11 +134,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1240, 800);
             Controls.Add(btnConexao_Click);
             Controls.Add(mnuTelaPrincipal);
             MainMenuStrip = mnuTelaPrincipal;
             Name = "FrmTelaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Atendimento";
             mnuTelaPrincipal.ResumeLayout(false);
             mnuTelaPrincipal.PerformLayout();

@@ -433,14 +433,23 @@ namespace SistemaAtendimento
                     if(response.IsSuccessStatusCode)
                     {
                         string json = await response.Content.ReadAsStringAsync();
-
                         dynamic? dadosEndereco = JsonConvert.DeserializeObject(json);
+
+                        if (dadosEndereco?.erro != null && (bool)dadosEndereco?.erro == true)
+                        {
+                            ExibirMensagem("CEP inválido.");
+                            return;
+                        }
 
                         txtEndereco.Text = dadosEndereco?.logradouro;
                         txtBairro.Text = dadosEndereco?.bairro;
                         txtCidade.Text = dadosEndereco?.localidade;
                         cbxEstado.Text = dadosEndereco?.uf;
                         txtNumero.Focus();
+                    }
+                    else
+                    {
+                        ExibirMensagem("CEP inválido.");
                     }
                 }
             }

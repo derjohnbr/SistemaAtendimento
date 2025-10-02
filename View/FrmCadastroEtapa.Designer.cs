@@ -317,7 +317,10 @@
             Controls.Add(btnEditar);
             Controls.Add(btnNovo);
             Controls.Add(grbDadosEtapa);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCadastroEtapa";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Etapas";
             Load += FrmCadastroEtapa_Load;
             grbListaEtapas.ResumeLayout(false);

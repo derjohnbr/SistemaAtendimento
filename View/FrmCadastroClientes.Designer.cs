@@ -580,7 +580,10 @@
             Controls.Add(btnEditar);
             Controls.Add(btnNovo);
             Controls.Add(grbDadosCliente);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCadastroClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Clientes";
             Load += FrmCadastroClientes_Load;
             grbDadosCliente.ResumeLayout(false);
