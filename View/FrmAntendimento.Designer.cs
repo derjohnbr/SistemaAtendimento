@@ -42,7 +42,7 @@
             btnSalvar = new Button();
             txtObservacaoAtendimento = new TextBox();
             cbxSituacaoAtendimento = new ComboBox();
-            dtpAbertura = new DateTimePicker();
+            dtpAberturaAtendimento = new DateTimePicker();
             cbxNomeCliente = new ComboBox();
             txtCodigoCliente = new TextBox();
             lblObservacaoAtendimento = new Label();
@@ -92,7 +92,7 @@
             grbDadosCliente.Controls.Add(btnSalvar);
             grbDadosCliente.Controls.Add(txtObservacaoAtendimento);
             grbDadosCliente.Controls.Add(cbxSituacaoAtendimento);
-            grbDadosCliente.Controls.Add(dtpAbertura);
+            grbDadosCliente.Controls.Add(dtpAberturaAtendimento);
             grbDadosCliente.Controls.Add(cbxNomeCliente);
             grbDadosCliente.Controls.Add(txtCodigoCliente);
             grbDadosCliente.Controls.Add(lblObservacaoAtendimento);
@@ -198,7 +198,7 @@
             txtObservacaoAtendimento.Multiline = true;
             txtObservacaoAtendimento.Name = "txtObservacaoAtendimento";
             txtObservacaoAtendimento.Size = new Size(648, 76);
-            txtObservacaoAtendimento.TabIndex = 9;
+            txtObservacaoAtendimento.TabIndex = 6;
             // 
             // cbxSituacaoAtendimento
             // 
@@ -206,14 +206,14 @@
             cbxSituacaoAtendimento.Location = new Point(15, 101);
             cbxSituacaoAtendimento.Name = "cbxSituacaoAtendimento";
             cbxSituacaoAtendimento.Size = new Size(206, 23);
-            cbxSituacaoAtendimento.TabIndex = 8;
+            cbxSituacaoAtendimento.TabIndex = 5;
             // 
-            // dtpAbertura
+            // dtpAberturaAtendimento
             // 
-            dtpAbertura.Location = new Point(652, 45);
-            dtpAbertura.Name = "dtpAbertura";
-            dtpAbertura.Size = new Size(223, 23);
-            dtpAbertura.TabIndex = 7;
+            dtpAberturaAtendimento.Location = new Point(652, 45);
+            dtpAberturaAtendimento.Name = "dtpAberturaAtendimento";
+            dtpAberturaAtendimento.Size = new Size(223, 23);
+            dtpAberturaAtendimento.TabIndex = 4;
             // 
             // cbxNomeCliente
             // 
@@ -221,14 +221,14 @@
             cbxNomeCliente.Location = new Point(121, 45);
             cbxNomeCliente.Name = "cbxNomeCliente";
             cbxNomeCliente.Size = new Size(525, 23);
-            cbxNomeCliente.TabIndex = 6;
+            cbxNomeCliente.TabIndex = 3;
             // 
             // txtCodigoCliente
             // 
             txtCodigoCliente.Location = new Point(15, 45);
             txtCodigoCliente.Name = "txtCodigoCliente";
             txtCodigoCliente.Size = new Size(100, 23);
-            txtCodigoCliente.TabIndex = 5;
+            txtCodigoCliente.TabIndex = 2;
             // 
             // lblObservacaoAtendimento
             // 
@@ -329,7 +329,7 @@
             txtEtapaObservacao.Multiline = true;
             txtEtapaObservacao.Name = "txtEtapaObservacao";
             txtEtapaObservacao.Size = new Size(271, 102);
-            txtEtapaObservacao.TabIndex = 3;
+            txtEtapaObservacao.TabIndex = 2;
             // 
             // cbxEtapaAtendimento
             // 
@@ -337,7 +337,7 @@
             cbxEtapaAtendimento.Location = new Point(15, 49);
             cbxEtapaAtendimento.Name = "cbxEtapaAtendimento";
             cbxEtapaAtendimento.Size = new Size(271, 23);
-            cbxEtapaAtendimento.TabIndex = 2;
+            cbxEtapaAtendimento.TabIndex = 1;
             // 
             // lblEtapaObservacao
             // 
@@ -410,7 +410,7 @@
         private Button btnSalvar;
         private TextBox txtObservacaoAtendimento;
         private ComboBox cbxSituacaoAtendimento;
-        private DateTimePicker dtpAbertura;
+        private DateTimePicker dtpAberturaAtendimento;
         private TextBox txtEtapaObservacao;
         private ComboBox cbxEtapaAtendimento;
         private Label lblEtapaObservacao;
