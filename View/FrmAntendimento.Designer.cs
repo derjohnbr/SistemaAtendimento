@@ -68,7 +68,7 @@
             // 
             lblCodigoAtendimento.AutoSize = true;
             lblCodigoAtendimento.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCodigoAtendimento.Location = new Point(535, 16);
+            lblCodigoAtendimento.Location = new Point(585, 16);
             lblCodigoAtendimento.Name = "lblCodigoAtendimento";
             lblCodigoAtendimento.Size = new Size(171, 32);
             lblCodigoAtendimento.TabIndex = 0;
@@ -77,7 +77,7 @@
             // txtCodigoAtendimento
             // 
             txtCodigoAtendimento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCodigoAtendimento.Location = new Point(712, 16);
+            txtCodigoAtendimento.Location = new Point(762, 19);
             txtCodigoAtendimento.Name = "txtCodigoAtendimento";
             txtCodigoAtendimento.Size = new Size(131, 29);
             txtCodigoAtendimento.TabIndex = 1;
@@ -368,6 +368,7 @@
             btnPesquisarAtendimento.TabIndex = 12;
             btnPesquisarAtendimento.Text = "Pesquisar Atendimento";
             btnPesquisarAtendimento.UseVisualStyleBackColor = true;
+            btnPesquisarAtendimento.Click += btnPesquisarAtendimento_Click;
             // 
             // FrmAntendimento
             // 

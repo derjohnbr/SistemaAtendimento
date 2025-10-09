@@ -61,5 +61,11 @@ namespace SistemaAtendimento
             FrmAntendimento frmAntendimento = new FrmAntendimento();
             frmAntendimento.ShowDialog();
         }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaAtendimento frmConsultaAtendimento = new FrmConsultaAtendimento();
+            frmConsultaAtendimento.ShowDialog();
+        }
     }
 }
